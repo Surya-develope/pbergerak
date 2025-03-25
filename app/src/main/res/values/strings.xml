@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="forgot_password">Lupa Kata Sandi?</string>
+    <string name="login">Masuk</string>
+    <string name="remember_me">Ingat Saya</string>
+    <string name="user_id_text">User ID: %1$s</string>
+    <string name="email_text">Email: %1$s</string>
+</resources>
