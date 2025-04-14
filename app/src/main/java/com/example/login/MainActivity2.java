@@ -3,7 +3,6 @@ package com.example.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -15,12 +14,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity2 extends AppCompatActivity {
     Button btnSignUp;
     TextInputEditText usernameSignUp, passwordSignUp, nimPengguna, emailPengguna;
-    FirebaseAuth mAuth;  // Firebase Authentication
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +32,8 @@ public class MainActivity2 extends AppCompatActivity {
             return insets;
         });
 
-        // Inisialisasi Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Inisialisasi UI
         btnSignUp = findViewById(R.id.btnSignUp);
         usernameSignUp = findViewById(R.id.usernameSignUp);
         emailPengguna = findViewById(R.id.emailPengguna);
@@ -75,19 +71,17 @@ public class MainActivity2 extends AppCompatActivity {
             return;
         }
 
-        // Firebase Authentication untuk registrasi
+        // Daftarkan user ke Firebase
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        if (user != null) {
-                            user.sendEmailVerification(); // Kirim email verifikasi (opsional)
-                        }
                         Toast.makeText(MainActivity2.this, "Registrasi Berhasil!", Toast.LENGTH_SHORT).show();
 
-                        // Pindah ke halaman login setelah sukses
-                        startActivity(new Intent(MainActivity2.this, MainActivity.class));
-                        finish();
+                        // Pindahkan ke halaman login setelah registrasi
+                        Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                        intent.putExtra("EXTRA_REGISTER_SUCCESS", true);  // Menandakan registrasi berhasil
+                        startActivity(intent);
+                        finish();  // Menutup halaman registrasi agar tidak kembali ke sana
                     } else {
                         Toast.makeText(MainActivity2.this, "Registrasi Gagal: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

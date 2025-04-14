@@ -12,34 +12,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login"
-        tools:targetApi="33">  <!-- Sesuaikan dengan API terbaru -->
-
+        tools:targetApi="33">
+        <activity
+            android:name=".PengaturanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TugasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KeuanganActivity"
+            android:exported="false" /> <!-- Sesuaikan dengan API terbaru -->
         <!-- Login/Register -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Home setelah login -->
+        </activity> <!-- Home setelah login -->
         <activity
             android:name=".HomeActivity"
-            android:exported="true" />
-
-        <!-- Halaman profil -->
+            android:exported="true" /> <!-- Halaman profil -->
         <activity
             android:name=".ProfileActivity"
-            android:exported="true"
-            tools:node="replace" />  <!-- Tambahan untuk menghindari konflik -->
-
-        <!-- Halaman lain -->
+            android:exported="true" /> <!-- Halaman lain -->
         <activity
             android:name=".MainActivity2"
-            android:exported="true" />  <!-- Ubah ke `true` jika perlu diakses -->
-
+            android:exported="true" />
     </application>
 
 </manifest>

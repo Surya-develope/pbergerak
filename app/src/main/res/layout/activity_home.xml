@@ -1,47 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:background="#121212"
+    android:orientation="vertical">
 
-    <!-- Judul Home -->
+    <!-- Judul -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selamat datang di Home!"
-        android:textSize="20sp"
+        android:text="Menu Utama"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:padding="20dp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal"/>
+        android:textColor="#FFD700" />
 
-    <!-- Tampilkan Username -->
-    <TextView
-        android:id="@+id/txtUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"/>
+    <!-- Menu -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <!-- Tampilkan Email -->
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center">
 
-    <!-- Tombol ke Profil -->
-    <Button
-        android:id="@+id/btnProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ke Profil"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"/>
+            <!-- Tombol Catatan Keuangan -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnKeuangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Catatan Keuangan"
+                android:textColor="#000000"
+                android:backgroundTint="#FFD700"
+                app:cornerRadius="20dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
 
+            <!-- Tombol Memo Harian -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMemo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memo Harian"
+                android:textColor="#000000"
+                android:backgroundTint="#FFD700"
+                app:cornerRadius="20dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Tombol Daftar Tugas -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Tugas"
+                android:textColor="#000000"
+                android:backgroundTint="#FFD700"
+                app:cornerRadius="20dp"
+                android:elevation="6dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#333333"
+        android:padding="4dp"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Home"
+            android:textColor="#000000"
+            android:backgroundTint="#FFD700"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Profile"
+            android:textColor="#000000"
+            android:backgroundTint="#FFD700"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Pengaturan"
+            android:textColor="#000000"
+            android:backgroundTint="#FFD700"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
 </LinearLayout>

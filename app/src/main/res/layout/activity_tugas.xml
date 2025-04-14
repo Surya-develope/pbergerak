@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Judul -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar Tugas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="#FFD700"/>
+
+    <!-- Input untuk nama tugas -->
+    <EditText
+        android:id="@+id/edtTugas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Tugas"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:minHeight="48dp"/> <!-- Menambahkan minHeight untuk meningkatkan ukuran target sentuhan -->
+
+    <!-- Input untuk tanggal tenggat -->
+    <EditText
+        android:id="@+id/edtTenggat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tanggal Tenggat"
+        android:focusable="false"
+        android:clickable="true"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:minHeight="48dp"/> <!-- Menambahkan minHeight untuk meningkatkan ukuran target sentuhan -->
+
+    <!-- Tombol untuk simpan tugas -->
+    <Button
+        android:id="@+id/btnSimpanTugas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan Tugas"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:backgroundTint="#FFD700"
+        android:minHeight="48dp"/> <!-- Menambahkan minHeight untuk meningkatkan ukuran target sentuhan -->
+</LinearLayout>

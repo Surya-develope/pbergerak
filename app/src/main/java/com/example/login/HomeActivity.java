@@ -3,49 +3,83 @@ package com.example.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity {
+
     private FirebaseAuth mAuth;
-    private TextView txtUsername, txtEmail;
-    private Button btnProfile;
+    private Button btnKeuangan, btnMemo, btnTugas;
+    private Button navHome, navProfile, navSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home); // Pastikan nama layout sesuai
 
-        // Inisialisasi Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Hubungkan dengan elemen di XML
-        txtUsername = findViewById(R.id.txtUsername);
-        txtEmail = findViewById(R.id.txtEmail);
-        btnProfile = findViewById(R.id.btnProfile);
+        // Inisialisasi tombol menu utama
+        btnKeuangan = findViewById(R.id.btnKeuangan);
+        btnMemo = findViewById(R.id.btnMemo);
+        btnTugas = findViewById(R.id.btnTugas);
 
-        // Ambil data pengguna saat ini dari Firebase
+        // Inisialisasi Navigation Bar
+        navHome = findViewById(R.id.navHome);
+        navProfile = findViewById(R.id.navProfile);
+        navSettings = findViewById(R.id.navSettings);
+
+        // Ambil data pengguna dari Firebase
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null) {
-            String userId = user.getUid(); // Ambil UID pengguna dari Firebase
-            String email = (user.getEmail() != null) ? user.getEmail() : "Tidak Ada Email";
-
-            // Tampilkan di TextView
-            txtUsername.setText("User ID: " + userId);
-            txtEmail.setText(email);
-        } else {
-            // Jika user belum login
-            txtUsername.setText("Pengguna Tidak Login");
-            txtEmail.setText("Tidak ada email");
+        if (user == null) {
+            // Jika tidak ada pengguna yang login
+            Toast.makeText(this, "Silakan login terlebih dahulu", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HomeActivity.this, MainActivity.class));
+            finish();
+            return;
         }
 
-        // Klik tombol profil untuk membuka ProfileActivity
-        btnProfile.setOnClickListener(v -> {
+        // Mengambil data pengguna
+        String userID = user.getUid(); // Ambil UID pengguna dari Firebase
+        String username = user.getDisplayName() != null ? user.getDisplayName() : "Username tidak tersedia";
+        String email = user.getEmail() != null ? user.getEmail() : "Email tidak tersedia";
+
+        // Aksi tombol menu utama
+        btnKeuangan.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, KeuanganActivity.class);
+            startActivity(intent);
+        });
+
+        btnMemo.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, MemoActivity.class);
+            startActivity(intent);
+        });
+
+        btnTugas.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, TugasActivity.class);
+            startActivity(intent);
+        });
+
+        // Aksi tombol navigation bar
+        navHome.setOnClickListener(view -> {
+            // Sudah berada di Home, tidak perlu mengalihkan ke HomeActivity lagi
+        });
+
+        navProfile.setOnClickListener(view -> {
+            // Mengirim data pengguna ke ProfileActivity
             Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-            intent.putExtra("USERNAME", txtUsername.getText().toString());
-            intent.putExtra("EMAIL", txtEmail.getText().toString());
+            intent.putExtra("USER_ID", userID);
+            intent.putExtra("USERNAME", username);
+            intent.putExtra("EMAIL", email);
+            startActivity(intent);
+        });
+
+        navSettings.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, PengaturanActivity.class);
             startActivity(intent);
         });
     }

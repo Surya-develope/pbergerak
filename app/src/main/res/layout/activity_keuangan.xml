@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#121212">
+
+    <!-- Judul -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Catatan Keuangan"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="#FFD700" />
+
+    <!-- Input Pendapatan -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="Pendapatan">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPendapatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Pengeluaran -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="Pengeluaran">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPengeluaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tombol Simpan -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSimpanKeuangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:textColor="#000000"
+        android:backgroundTint="#FFD700"
+        app:cornerRadius="20dp"
+        android:elevation="6dp"
+        android:layout_marginTop="20dp" />
+
+    <!-- Output Total -->
+    <TextView
+        android:id="@+id/txtTotalKeuangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: 0"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

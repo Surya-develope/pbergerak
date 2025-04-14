@@ -1,36 +1,28 @@
-package com.example.login; // Tambahkan package ini jika belum ada
+package com.example.login;
 
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView txtUserID, txtEmail;
-    private FirebaseAuth mAuth;
+    private TextView txtUserID, txtProfileUsername, txtProfileEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        txtUserID = findViewById(R.id.txtUserID);
-        txtEmail = findViewById(R.id.txtEmail);
-        mAuth = FirebaseAuth.getInstance();
+        txtUserID = findViewById(R.id.txtUserID);  // Pastikan ID sesuai dengan XML
+        txtProfileUsername = findViewById(R.id.txtProfileUsername);
+        txtProfileEmail = findViewById(R.id.txtProfileEmail);
 
-        // Ambil data user dari Firebase Authentication
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null) {
-            String userID = user.getUid();
-            String email = user.getEmail();
+        // Mendapatkan data dari Intent
+        String userID = getIntent().getStringExtra("USER_ID");
+        String username = getIntent().getStringExtra("USERNAME");
+        String email = getIntent().getStringExtra("EMAIL");
 
-            // Cegah error jika userID atau email null
-            txtUserID.setText(getString(R.string.user_id_text, (userID != null ? userID : "Tidak tersedia")));
-            txtEmail.setText(getString(R.string.email_text, (email != null ? email : "Tidak tersedia")));
-        } else {
-            txtUserID.setText("User ID: Tidak ada user yang login");
-            txtEmail.setText("Email: Tidak ada user yang login");
-        }
+        txtUserID.setText(userID);
+        txtProfileUsername.setText(username);
+        txtProfileEmail.setText(email);
     }
 }
