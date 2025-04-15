@@ -24,19 +24,15 @@ public class TugasActivity extends AppCompatActivity {
         edtTenggat = findViewById(R.id.edtTenggat);
         btnSimpanTugas = findViewById(R.id.btnSimpanTugas);
 
-        // Menambahkan listener untuk edtTenggat (EditText Tanggal Tenggat)
         edtTenggat.setOnClickListener(view -> {
-            // Mendapatkan tanggal sekarang
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
             int month = calendar.get(Calendar.MONTH);
             int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-            // Membuka DatePickerDialog
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     TugasActivity.this,
                     (view1, year1, monthOfYear, dayOfMonth1) -> {
-                        // Menampilkan tanggal yang dipilih di edtTenggat
                         edtTenggat.setText(dayOfMonth1 + "/" + (monthOfYear + 1) + "/" + year1);
                     },
                     year, month, dayOfMonth
@@ -44,16 +40,14 @@ public class TugasActivity extends AppCompatActivity {
             datePickerDialog.show();
         });
 
-        // Simpan tugas
         btnSimpanTugas.setOnClickListener(view -> {
             String tugas = edtTugas.getText().toString();
             String tenggat = edtTenggat.getText().toString();
 
             if (!tugas.isEmpty() && !tenggat.isEmpty()) {
-                // Menampilkan Toast sebagai contoh penyimpanan
                 Toast.makeText(TugasActivity.this, "Tugas berhasil disimpan", Toast.LENGTH_SHORT).show();
-                edtTugas.setText(""); // Kosongkan input tugas
-                edtTenggat.setText(""); // Kosongkan input tenggat
+                edtTugas.setText("");
+                edtTenggat.setText("");
             } else {
                 Toast.makeText(TugasActivity.this, "Pastikan semua data terisi", Toast.LENGTH_SHORT).show();
             }

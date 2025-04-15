@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Tampilkan User ID -->
     <TextView
         android:id="@+id/txtUserID"
         android:layout_width="match_parent"
@@ -13,7 +12,6 @@
         android:text="User ID: "
         android:textSize="18sp" />
 
-    <!-- Tampilkan Username -->
     <TextView
         android:id="@+id/txtProfileUsername"
         android:layout_width="match_parent"
@@ -21,7 +19,6 @@
         android:text="Username: "
         android:textSize="18sp" />
 
-    <!-- Tampilkan Email -->
     <TextView
         android:id="@+id/txtProfileEmail"
         android:layout_width="match_parent"

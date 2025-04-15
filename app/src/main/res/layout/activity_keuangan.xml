@@ -3,71 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:background="#121212">
+    android:background="#121212"
+    android:orientation="vertical">
 
-    <!-- Judul -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Catatan Keuangan"
+        android:text="Menu Utama"
         android:textSize="24sp"
-        android:textStyle="bold"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="20dp"
+        android:textStyle="bold"
         android:textColor="#FFD700" />
 
-    <!-- Input Pendapatan -->
-    <com.google.android.material.textfield.TextInputLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:hint="Pendapatan">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtPendapatan"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textColor="#FFFFFF" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center">
 
-    <!-- Input Pengeluaran -->
-    <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnKeuangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Catatan Keuangan"
+                android:textColor="#000000"
+                android:backgroundTint="#FFD700"
+                app:cornerRadius="20dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMemo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memo Harian"
+                android:textColor="#000000"
+                android:backgroundTint="#FFD700"
+                app:cornerRadius="20dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Tugas"
+                android:textColor="#000000"
+                android:backgroundTint="#FFD700"
+                app:cornerRadius="20dp"
+                android:elevation="6dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/navigationBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:hint="Pengeluaran">
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#333333"
+        android:padding="4dp"
+        android:gravity="center">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtPengeluaran"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textColor="#FFFFFF" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Home"
+            android:textColor="#000000"
+            android:backgroundTint="#FFD700"
+            app:cornerRadius="16dp" />
 
-    <!-- Tombol Simpan -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSimpanKeuangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Simpan"
-        android:textColor="#000000"
-        android:backgroundTint="#FFD700"
-        app:cornerRadius="20dp"
-        android:elevation="6dp"
-        android:layout_marginTop="20dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Profile"
+            android:textColor="#000000"
+            android:backgroundTint="#FFD700"
+            app:cornerRadius="16dp" />
 
-    <!-- Output Total -->
-    <TextView
-        android:id="@+id/txtTotalKeuangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Total: 0"
-        android:textSize="18sp"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Pengaturan"
+            android:textColor="#000000"
+            android:backgroundTint="#FFD700"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
 </LinearLayout>

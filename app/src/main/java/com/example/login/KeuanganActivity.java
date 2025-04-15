@@ -24,14 +24,10 @@ public class KeuanganActivity extends AppCompatActivity {
         btnSimpanKeuangan = findViewById(R.id.btnSimpanKeuangan);
         txtTotalKeuangan = findViewById(R.id.txtTotalKeuangan);
 
-        // Simpan catatan keuangan
         btnSimpanKeuangan.setOnClickListener(view -> {
             float pendapatan = Float.parseFloat(edtPendapatan.getText().toString());
             float pengeluaran = Float.parseFloat(edtPengeluaran.getText().toString());
-
             totalKeuangan = pendapatan - pengeluaran;
-
-            // Tampilkan total keuangan
             txtTotalKeuangan.setText("Total: " + totalKeuangan);
         });
     }

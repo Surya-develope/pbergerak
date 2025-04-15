@@ -21,11 +21,10 @@ public class PengaturanActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
 
         btnLogout.setOnClickListener(view -> {
-            // Melakukan logout dari Firebase
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(PengaturanActivity.this, "Berhasil logout", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(PengaturanActivity.this, MainActivity.class));
-            finish(); // Menutup activity pengaturan setelah logout
+            finish();
         });
     }
 }

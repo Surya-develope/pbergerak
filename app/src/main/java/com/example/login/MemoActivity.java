@@ -20,14 +20,11 @@ public class MemoActivity extends AppCompatActivity {
         edtMemo = findViewById(R.id.edtMemo);
         btnSimpanMemo = findViewById(R.id.btnSimpanMemo);
 
-        // Simpan memo
         btnSimpanMemo.setOnClickListener(view -> {
             String memo = edtMemo.getText().toString();
-            // Simulasi penyimpanan, bisa disesuaikan dengan database atau penyimpanan lokal
             if (!memo.isEmpty()) {
-                // Menampilkan Toast sebagai contoh penyimpanan
                 Toast.makeText(MemoActivity.this, "Memo berhasil disimpan", Toast.LENGTH_SHORT).show();
-                edtMemo.setText(""); // Kosongkan input setelah disimpan
+                edtMemo.setText("");
             }
         });
     }

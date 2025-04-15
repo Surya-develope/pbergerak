@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity2 extends AppCompatActivity {
+
     Button btnSignUp;
     TextInputEditText usernameSignUp, passwordSignUp, nimPengguna, emailPengguna;
     FirebaseAuth mAuth;
@@ -49,7 +50,6 @@ public class MainActivity2 extends AppCompatActivity {
         String password = passwordSignUp.getText().toString().trim();
         String NIM = nimPengguna.getText().toString().trim();
 
-        // Validasi input
         if (TextUtils.isEmpty(username)) {
             usernameSignUp.setError("Masukkan username!");
             usernameSignUp.requestFocus();
@@ -71,17 +71,14 @@ public class MainActivity2 extends AppCompatActivity {
             return;
         }
 
-        // Daftarkan user ke Firebase
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(MainActivity2.this, "Registrasi Berhasil!", Toast.LENGTH_SHORT).show();
-
-                        // Pindahkan ke halaman login setelah registrasi
                         Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-                        intent.putExtra("EXTRA_REGISTER_SUCCESS", true);  // Menandakan registrasi berhasil
+                        intent.putExtra("EXTRA_REGISTER_SUCCESS", true);
                         startActivity(intent);
-                        finish();  // Menutup halaman registrasi agar tidak kembali ke sana
+                        finish();
                     } else {
                         Toast.makeText(MainActivity2.this, "Registrasi Gagal: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

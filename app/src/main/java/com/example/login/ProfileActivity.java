@@ -12,11 +12,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        txtUserID = findViewById(R.id.txtUserID);  // Pastikan ID sesuai dengan XML
+        txtUserID = findViewById(R.id.txtUserID);
         txtProfileUsername = findViewById(R.id.txtProfileUsername);
         txtProfileEmail = findViewById(R.id.txtProfileEmail);
 
-        // Mendapatkan data dari Intent
         String userID = getIntent().getStringExtra("USER_ID");
         String username = getIntent().getStringExtra("USERNAME");
         String email = getIntent().getStringExtra("EMAIL");

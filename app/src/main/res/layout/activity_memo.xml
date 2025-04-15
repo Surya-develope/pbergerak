@@ -15,7 +15,6 @@
         android:padding="16dp"
         android:textColor="#FFD700"/>
 
-    <!-- Input untuk menulis memo -->
     <EditText
         android:id="@+id/edtMemo"
         android:layout_width="match_parent"
@@ -26,7 +25,6 @@
         android:gravity="top|start"
         android:inputType="textMultiLine"/>
 
-    <!-- Tombol untuk simpan memo -->
     <Button
         android:id="@+id/btnSimpanMemo"
         android:layout_width="match_parent"
